@@ -1,0 +1,34 @@
+<!-- ng-controller="Pager "-->
+<div style="display: flex; flex-flow: row" ng-if="pager.isVisible">
+
+    <button class="mdl-button mdl-button--icon mdl-js-button mdl-js-ripple-effect"
+            ng-click="pager.nextPage('desc',true)">
+        <!-- Right aligned menu below button -->
+        <i class="material-icons" >fast_rewind</i>
+    </button>
+
+    <button class="mdl-button mdl-button--icon mdl-js-button mdl-js-ripple-effect"
+            ng-click="pager.nextPage('desc')">
+        <!-- Right aligned menu below button -->
+        <i class="material-icons" >chevron_left</i>
+    </button>
+
+    <button class="mdl-button mdl-button--icon mdl-js-button mdl-js-ripple-effect"
+            ng-repeat="bullet in pager.pageBullets"
+            ng-class="pager.currentPage == bullet ?  'mdl-button--accent' : ''"
+            ng-click="pager.nextPage(bullet)"
+            >
+        {{bullet}}
+    </button>
+
+    <button class="mdl-button mdl-button--icon mdl-js-button mdl-js-ripple-effect"
+            ng-click="pager.nextPage()">
+        <!-- Right aligned menu below button -->
+        <i class="material-icons">chevron_right</i>
+    </button>
+    <button class="mdl-button mdl-button--icon mdl-js-button mdl-js-ripple-effect"
+            ng-click="pager.nextPage('asc',true)">
+        <!-- Right aligned menu below button -->
+        <i class="material-icons">fast_forward</i>
+    </button>
+</div>

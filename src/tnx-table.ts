@@ -23,7 +23,9 @@ angular.module('tnxTable', [])
             scope: {
                 pager: '='
             },
-            templateUrl: 'templates/tnx/pager.html',
+            templateUrl: (element,attrs)=>{
+                return attrs.templateUrl? attrs.templateUrl : 'templates/tnx/pager.html';
+            },
             //post
         }
     });

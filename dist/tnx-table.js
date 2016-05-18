@@ -78,7 +78,9 @@ return /******/ (function(modules) { // webpackBootstrap
 	        scope: {
 	            pager: '='
 	        },
-	        templateUrl: 'templates/tnx/pager.html',
+	        templateUrl: function (element, attrs) {
+	            return attrs.templateUrl ? attrs.templateUrl : 'templates/tnx/pager.html';
+	        },
 	    };
 	});
 
