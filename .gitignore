@@ -3,4 +3,6 @@ built/
 .vscode/
 node_modules/
 typings/
+example/node_modules/
+
 npm-debug.log
