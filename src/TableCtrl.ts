@@ -1,5 +1,5 @@
 
-import {EventArgs} from "tnx-core";
+import {EventArgs, IObservableThing} from "tnx-core";
 
 import {
     DataSource, iTable, iColumn, iRow, iCell, TableElement, TableElementRole, Filter, ColumnDefinition, Visibility,
@@ -28,9 +28,9 @@ export class TnxTableCtrl implements Rx.Disposable {
     
     constructor(private $scope,private $timeout) {
         
-        var vm = $scope.source;
+        var vm = $scope.source as IObservableThing;
 
-        var eBus = (vm.eBus as Rx.Subject<EventArgs>);
+        var eBus = (vm.xEvents as Rx.Subject<EventArgs>);
         
         this.disposables.add(
             eBus.asObservable()

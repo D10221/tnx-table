@@ -4,13 +4,17 @@ import {isVisible} from "./TableElementTools";
 angular.module('tnxTable', [])
     .filter('isVisible',()=> isVisible )
     .controller('TnxTableCtrl', TnxTableCtrl)
-    .directive('tnxTable', (/*injector Dependencies*/)=> {
+    .directive('tnxTable', ()=> {
         return {
             restrict: 'E',
             scope: {
+                //DataProvider , ParentController , names... ?
                 source: '='
             },
-            templateUrl: 'templates/tnx/table.html',
+            templateUrl: (element,attr)=>{
+                return attr.templateUrl ? attr.templateUrl :
+                    'templates/tnx/table.html'
+            },
            // transclude: true
         }
     })
@@ -19,7 +23,7 @@ angular.module('tnxTable', [])
             scope: {
                 pager: '='
             },
-            templateUrl: 'templates/data-table/pager.html',
+            templateUrl: 'templates/tnx/pager.html',
             //post
         }
     });

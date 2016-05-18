@@ -7,9 +7,13 @@
 <body ng-controller="MainController as vm">
     <div>
         <span>{{vm.message}}</span>
+        <tnx-table source="vm"></tnx-table>
     </div>
 
-<script src="node_modules/angular/angular.js" ></script>
-<script src="index.js"></script>
+<script src="../node_modules/rx/dist/rx.all.js"></script>
+<script src="../node_modules/lodash/lodash.js"></script>
+<script src="../node_modules/angular/angular.js" ></script>
+<script src="../dist/tnx-table.js"></script>
+<script src="./built/index.js"></script>
 </body>
 </html>

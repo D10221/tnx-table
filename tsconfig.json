@@ -13,6 +13,6 @@
       "!src/**/*_test.ts"
     ],
     "exclude": [
-        "node_modules","built","dist","test"
+        "node_modules","built","dist","test","example"
     ]
 }

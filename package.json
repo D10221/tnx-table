@@ -7,12 +7,15 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "build": "tsc -p .",
     "build-tests": "tsc -p test/.",
+    "build-example": "webpack --config example/webpack.config.js",
     "bundle-tests": "webpack --config test/webpack.config.js",
+    "bundle": "webpack",
     "clean": "rm -rf ./built"
   },
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "angular": "^1.5.5",
     "lodash": "^4.12.0",
     "rx": "^4.1.0",
     "tnx-core": "git+https://github.com/D10221/tnx-core.git"

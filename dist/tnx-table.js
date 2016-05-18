@@ -64,9 +64,13 @@ return /******/ (function(modules) { // webpackBootstrap
 	    return {
 	        restrict: 'E',
 	        scope: {
+	            //DataProvider , ParentController , names... ?
 	            source: '='
 	        },
-	        templateUrl: 'templates/tnx/table.html',
+	        templateUrl: function (element, attr) {
+	            return attr.templateUrl ? attr.templateUrl :
+	                'templates/tnx/table.html';
+	        },
 	    };
 	})
 	    .directive('tnxPager', function () {
@@ -74,7 +78,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	        scope: {
 	            pager: '='
 	        },
-	        templateUrl: 'templates/data-table/pager.html',
+	        templateUrl: 'templates/tnx/pager.html',
 	    };
 	});
 
@@ -107,7 +111,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	            }
 	        };
 	        var vm = $scope.source;
-	        var eBus = vm.eBus;
+	        var eBus = vm.xEvents;
 	        this.disposables.add(eBus.asObservable()
 	            .where(function (e) { return e.sender != _this; })
 	            .where(function (e) { return e.args.key == 'data'; })

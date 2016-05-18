@@ -4,5 +4,5 @@ built/
 node_modules/
 typings/
 example/node_modules/
-
+example/built/
 npm-debug.log
