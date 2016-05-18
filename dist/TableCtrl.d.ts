@@ -1,0 +1,33 @@
+import { EventArgs } from "tnx-core";
+import { DataSource, iTable, iColumn, iRow, iCell, TableElement, Filter, ColumnDefinition } from "./definitions";
+import { Pager } from "./Pager";
+export declare class TnxTableCtrl implements Rx.Disposable {
+    private $scope;
+    private $timeout;
+    data: DataSource;
+    table: iTable;
+    noData(): boolean;
+    disposables: Rx.CompositeDisposable;
+    pager: Pager;
+    constructor($scope: any, $timeout: any);
+    rebuild: (e?: EventArgs) => void;
+    dispose: () => void;
+    request(key: string): void;
+    toTable(data: DataSource): iTable;
+    makeColumns(table: iTable, definitions: ColumnDefinition[]): iColumn[];
+    ifDefined<T, TR>(x: T, key: string, value: (t: T) => TR, defaultValue?: TR): TR;
+    makeRows(table: iTable): any[];
+    makeCell(row: iRow): iCell[];
+    toggleSelected(e: TableElement[]): void;
+    toggleSelected(e: TableElement): void;
+    toggleVisibility(e: TableElement): void;
+    static toggleVisibilityInternal(e: TableElement): void;
+    isVisible(e: Filter): boolean;
+    isVisible(e: TableElement): boolean;
+    VisibleElements: TableElement[];
+    filterBy(x: any): void;
+    orderByColumnKey(column: iColumn): void;
+    dropLayout(e: TableElement): void;
+    toggleEditing(x: TableElement, state?: boolean): void;
+    move(e: TableElement, direction: string): void;
+}
